@@ -1,38 +1,39 @@
 import {
-  getAllDepartments,
-  createDepartment,
-  removeDepartment,
-} from '../Model/departmentModel.js';
+  createDepartmentController,
+  removeDepartmentController,
+  getAllDepartmentsController,
+} from '../Controller/departmentController.js';
 
 function initDepartmentRoutes(app, connection) {
   app.get('/department',  async (_, res) => {
-    try {
-      const result = await getAllDepartments(connection);
-      res.send(result.rows);
-    } catch(error) {
-      res.status(500).send("Something Broke but pls dont cry :(<br>" + error);
-    }
+    res.send(`
+      <h3>Department API</h3>
+      <p>/department/getAll</p>
+      <p>/department/create/[departmentName]</p>
+      <p>/department/remove/[departmentId]</p>
+    `)
   });
 
-  app.get('/department/create/:name', async (req, res) => {
-    const { name } = req.params;
-    try {
-     await createDepartment(connection, name);
-      res.send(true);
-    } catch(error) {
-      res.status(500).send(error);
-    }
-  });
+  app.get('/department/getAll', async (req, res) => getAllDepartmentsController({
+      req,  
+      res,
+      connection,
+    })
+  );
 
-  app.get('/department/remove/:id', async (req, res) => {
-    const { id } = req.params;
-    try {
-      await removeDepartment(connection, id);
-      res.send(true);
-    } catch(error) {
-      res.status(500).send(error);
-    }
-  });
+  app.get('/department/create/:name', async (req, res) => createDepartmentController({
+      req,
+      res,
+      connection,
+    })
+  );
+
+  app.get('/department/remove/:id', async (req, res) => removeDepartmentController({
+      req,
+      res,
+      connection,
+    })
+  );
 
   
 }

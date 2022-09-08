@@ -9,6 +9,7 @@ import initTicketRoutes from './ticket.js';
  * @param {Object} connection database connection
  */
 function router(app, connection) {
+
   /** Define Routes */
   initDepartmentRoutes(app, connection);
   initSprintRoutes(app, connection);

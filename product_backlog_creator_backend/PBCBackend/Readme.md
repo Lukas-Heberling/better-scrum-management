@@ -15,11 +15,11 @@ so i have to imagine as much as possible XD
 
 ### Sprints
 
-- ``Creating a Sprint``
+- ``Creating a Sprint for a Department``
 
-- ``Deleting a Sprint``
+- ``Deleting a Sprint from a Department``
 
-- ``Getting all Sprints``
+- ``Getting all Sprints for a Deparment``
 
 ### Tickets
 

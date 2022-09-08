@@ -1,4 +1,4 @@
-export const createDepartment = (connection, name) => new Promise((resolve, reject) => {
+export const createDepartmentModel = (connection, name) => new Promise((resolve, reject) => {
   connection.query(
     "INSERT INTO department (department_name) VALUES ($1)",
     [name],
@@ -9,7 +9,7 @@ export const createDepartment = (connection, name) => new Promise((resolve, reje
   );
 });
 
-export const removeDepartment = (connection, id) => new Promise((resolve, reject) => {
+export const removeDepartmentModel = (connection, id) => new Promise((resolve, reject) => {
   connection.query(
     "DELETE FROM department WHERE department_id = $1",
     [id],
@@ -20,7 +20,7 @@ export const removeDepartment = (connection, id) => new Promise((resolve, reject
   );
 });
 
-export const getAllDepartments = (connection) => new Promise((resolve, reject) => {
+export const getAllDepartmentsModel = (connection) => new Promise((resolve, reject) => {
   connection.query(
     "SELECT * FROM department",
     (error, result) => {
