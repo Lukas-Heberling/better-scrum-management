@@ -10,6 +10,8 @@ const app = express();
 /** Load env Variables */
 const port = process.env.PORT || 2509;
 
+app.use(express.static('public'))
+
 /**
  * 1. Create a database if not exists
  * 2. Create the needed tables if not exists
