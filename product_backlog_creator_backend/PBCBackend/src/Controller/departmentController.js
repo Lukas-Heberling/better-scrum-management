@@ -2,8 +2,7 @@ import {
   createDepartmentModel,
   removeDepartmentModel,
   getAllDepartmentsModel,
-} from '../Model/departmentModel';
-
+} from '../Model/departmentModel.js';
 
 export const createDepartmentController = async (options) => {
   const { req, res, connection } = options;
