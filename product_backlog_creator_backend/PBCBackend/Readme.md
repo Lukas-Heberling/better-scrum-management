@@ -31,3 +31,9 @@ so i have to imagine as much as possible XD
 
 - ``Getting all Tickets for a Sprint``
 
+### Ideen für Später
+
+- Login
+- Es soll ein erstelldatum bei Datenbank einträgen geben
+- Je nach erstelldatum sollen automatisch icons im namen gesetzt werden
+- Die Datenbank soll leicht erweiterbar gemacht werden, damit auch im nachhinein noch skripte angepasst werden können
