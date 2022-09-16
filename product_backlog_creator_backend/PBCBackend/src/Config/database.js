@@ -8,7 +8,7 @@ const client = new Client({
   host:  process.env.DATABASE_HOST,
   user: process.env.DATABASE_USER,
   password: process.env.DATABASE_PASSWORD,
-  port: process.env.DATABASE_PORT,
+  port: parseInt(process.env.DATABASE_PORT),
 });
 
 const databaseClient = new Client({
@@ -16,7 +16,7 @@ const databaseClient = new Client({
     host: process.env.DATABASE_HOST,
     database: process.env.DATABASE_NAME,
     password: process.env.DATABASE_PASSWORD,
-    port: process.env.DATABASE_PORT
+    port: parseInt(process.env.DATABASE_PORT)
 });
 
 
@@ -77,7 +77,7 @@ const createAndConnectToDatabase = async () => {
     host: process.env.DATABASE_HOST,
     database: process.env.DATABASE_NAME,
     password: process.env.DATABASE_PASSWORD,
-    port: process.env.DATABASE_PORT,
+    port: parseInt(process.env.DATABASE_PORT),
   });
 }
 
