@@ -1,6 +1,12 @@
 export const createDepartmentModel = (connection, name) => new Promise((resolve, reject) => {
+  const queryString = `
+    INSERT INTO department (department_name)
+    VALUES ($1)
+    RETURNING
+      department_id
+  `;
   connection.query(
-    "INSERT INTO department (department_name) VALUES ($1)",
+    queryString,
     [name],
     (error, result) => {
       if (error) reject(error);

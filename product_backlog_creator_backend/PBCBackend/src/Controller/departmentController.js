@@ -3,12 +3,17 @@ import {
   removeDepartmentModel,
   getAllDepartmentsModel,
 } from '../Model/departmentModel.js';
+import ProductBacklogModel from '../Model/productBacklogModel.js';
 
 export const createDepartmentController = async (options) => {
   const { req, res, connection } = options;
   const { name } = req.params;
+  const productBacklogModel = new ProductBacklogModel(connection);
+
   try {
-    await createDepartmentModel(connection, name);
+    const { rows } = await createDepartmentModel(connection, name);
+    const { department_id: departmentId } = rows[0];
+    await productBacklogModel.createProductBacklog({ departmentId });
     res.send(true);
   } catch(error) {
     res.status(500).send("Something Broke but pls dont cry :(<br>" + error);

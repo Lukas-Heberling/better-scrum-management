@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>SprintAPI - Documentation</title>
+  <title>PBC API - Documentation</title>
 
   <meta http-equiv="cleartype" content="on">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -80,10 +80,11 @@
       }
         </pre>
         <p>
-          The PBC backend always responds to the client in the same data structure.<br>
-          Dies ist die API Dokumentation des PBC (Product Backlog Creator) Backends.<br>
-          Das PBC Backend händelt das anlegen, händeln, entfernen und laden von abteilungen,
+          This is the API documentation of the PBC (Product Backlog Creator) Backend<br>
+          The PBC Backend handles the creation, deletion and loading of departments, sprints and
+          tickets.
           sprints und tickets.<br>
+          The PBC backend always responds to the client in the same data structure.<br>
           The key "messages" is used to send messages to the client, which can be displayed in the frontend.<br>
           The key "values" can be anything and will contain the data that the client requested.<br>
           The key "type" is used to indicate that everthing worked fine or an error occured.<br>

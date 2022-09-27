@@ -37,3 +37,11 @@ so i have to imagine as much as possible XD
 - Es soll ein erstelldatum bei Datenbank einträgen geben
 - Je nach erstelldatum sollen automatisch icons im namen gesetzt werden
 - Die Datenbank soll leicht erweiterbar gemacht werden, damit auch im nachhinein noch skripte angepasst werden können
+
+
+### The Product Backlog Table
+
+It will be built like one Department could contain multiple product backlogs
+but its not intended at the moment.
+
+So i will just implement a 1 to 1 relation between a department and product backlogs

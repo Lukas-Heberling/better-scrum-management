@@ -41,18 +41,26 @@ CREATE TABLE IF NOT EXISTS sprint_ticket_link (
   sprint_id INT REFERENCES sprint (sprint_id),
   ticket_id INT REFERENCES ticket (ticket_id)
 );
+CREATE TABLE IF NOT EXISTS product_backlog (
+  product_backlog_id SERIAL PRIMARY KEY,
+  department_id INT REFERENCES department (department_id)
+);
 `;
 
 /**
  * Create the Database .env.DATABASE_NAME if not exists
  */
-const createDatabase = async () => {
+const createDatabase = () => new Promise(async (resolve) => {
   await client.connect();
-  await client.query(
+  client.query(
     `CREATE DATABASE ${process.env.DATABASE_NAME}`,
-    () => client.end(),
+    () => {
+      client.end();
+      resolve();
+    },
   );
-};
+});
+
 
 /**
  * Connect to the created database and create
