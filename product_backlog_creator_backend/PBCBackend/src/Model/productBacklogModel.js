@@ -32,8 +32,6 @@ class ProductBacklogModel {
   createProductBacklog(options) {
     return new Promise((resolve, reject) => {
       const { departmentId } = options;
-      console.log("Create Product Backlog");
-      console.log(`departmentID: ${departmentId}`);
       const queryString = `INSERT INTO product_backlog (department_id) VALUES ($1)`;
       this.connection.query(
         queryString,
