@@ -2,7 +2,7 @@ import fs from 'fs';
 /** Import Routes */
 import initDepartmentRoutes from './departmentRoute.js';
 import initSprintRoutes from './sprintRoute.js';
-import initTicketRoutes from './ticket.js';
+import initTicketRoutes from './ticketRoute.js';
 
 /**
  * The Router defines all the routes in the api
