@@ -1,3 +1,5 @@
+import TicketController from "../Controller/ticketController.js";
+
 /**
  * Ticket Routes 
  * @param {Object} app express instance
@@ -6,49 +8,49 @@
  */
 function initTicketRoutes(app, connection) {
   /** Controller Mockup */
-  const controller = {};
+  const controller = TicketController(connection);
 
   /**
-   * Route to get all the Tickets for a specific Sprint
-   * /ticket/getAllFor/:sprintId
+   * Route to get all the Tickets for a specific Product Backlog
+   * /ticket/getAllFor/:productBacklogId
    */
   app.get(
-    '/ticket/getAllFor/:sprintId',
+    '/ticket/getAll/:productBacklogId',
     (/** @type {Object} */req, /** @type {Object} */res) => {
-      controller.getAllTicketsFromSprint({req, res});
+      controller.getAll({req, res});
     }
   );
 
   /**
-   * Route to save a new Ticket for a specific Sprint
+   * Route to add a new Ticket to a specific product backlog
    * /ticket/create/:ticketNumber
    */
   app.get(
-    '/ticket/create/:ticketNumber',
+    '/ticket/add/:ticketNumber/:productBacklogId',
     (/** @type  {Object} */req, /** @type {Object} */res) => {
-      controller.createTicketForSprint(req, res);
+      controller.add({req, res});
     }
   );
 
   /**
-   * Route to remove a Ticket from a Sprint
+   * Route to remove a Ticket
    * /ticket/remove/:ticketId
    */
   app.get(
     '/ticket/remove/:ticketId',
     (/** @type {Object} */req, /** @type {Object} */res) => {
-      controller.removeTicketFromSprint({req, res});
+      controller.remove({req, res});
     }
   );
 
   /**
-   * Route to update the Position of a Ticket in the Product Backlog or sprint
-   * /ticket/updatePosition/:ticketId/:newPosition
+   * Route to update the Position of a Ticket in the Product Backlog
+   * /ticket/move/:productBacklogId/:ticketId/:newPosition
    */
   app.get(
-    '/ticket/updatePosition/:ticketId/:newPosition',
+    '/ticket/move/:productBacklogId/:ticketId/:newPosition',
     (/** @type {Object} */req, /** @type {Object} */res) => {
-      controller.updatePosition({req, res});
+      controller.move({req, res});
     }
   );
 }
