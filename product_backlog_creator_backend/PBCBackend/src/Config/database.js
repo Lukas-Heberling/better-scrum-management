@@ -31,19 +31,15 @@ CREATE TABLE IF NOT EXISTS sprint (
   sprint_name VARCHAR,
   department_id INT REFERENCES department (department_id)
 );
-CREATE TABLE IF NOT EXISTS ticket (
-  ticket_id SERIAL PRIMARY KEY,
-  ticket_tr_id INT,
-  ticket_position INT
-);
-CREATE TABLE IF NOT EXISTS sprint_ticket_link (
-  link_id SERIAL PRIMARY KEY,
-  sprint_id INT REFERENCES sprint (sprint_id),
-  ticket_id INT REFERENCES ticket (ticket_id)
-);
 CREATE TABLE IF NOT EXISTS product_backlog (
   product_backlog_id SERIAL PRIMARY KEY,
   department_id INT REFERENCES department (department_id)
+);
+CREATE TABLE IF NOT EXISTS ticket (
+  ticket_id SERIAL PRIMARY KEY,
+  ticket_tr_id INT,
+  ticket_position INT,
+  product_backlog_id INT REFERENCES product_backlog(product_backlog_id)
 );
 `;
 
