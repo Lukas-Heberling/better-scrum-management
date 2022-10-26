@@ -34,8 +34,6 @@ function initDepartmentRoutes(app, connection) {
       connection,
     })
   );
-
-  
 }
 
 export default initDepartmentRoutes;
